@@ -7,6 +7,7 @@ Para a execução de cada topologia, basta:
   - instalar o eNSP 
   - baixar as pastas de cada topologia
   - salvá-las em eNSP/Examples
+  - abrir o arquivo .topo
 
 
 # Configuração de Vlan
