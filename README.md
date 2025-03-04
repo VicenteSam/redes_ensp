@@ -12,7 +12,7 @@ Para a execução de cada topologia, basta instalar o eNSP, baixar as pastas de 
 ![image](https://github.com/user-attachments/assets/55c11153-c683-4fea-a417-783a162883a9)
 
 # Configuração de Vlanif
-![image](https://github.com/user-attachments/assets/6644a37c-b6cf-4055-a3f9-abb5842f6df7)
+![image](https://github.com/user-attachments/assets/0c8abd9d-9b12-4bb5-9fc0-e31093393e39)
 
 
 # Configuração de WLAN
