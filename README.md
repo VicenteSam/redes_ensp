@@ -2,7 +2,11 @@
 Atividade final - Redes
 
 Arquivos de configuração eNSP para criação de topologias.
-Para a execução de cada topologia, basta instalar o eNSP, baixar as pastas de cada topologia e salvá-las em eNSP/Examples
+
+Para a execução de cada topologia, basta:
+  - instalar o eNSP 
+  - baixar as pastas de cada topologia
+  - salvá-las em eNSP/Examples
 
 
 # Configuração de Vlan
