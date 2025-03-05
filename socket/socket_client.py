@@ -19,7 +19,7 @@ def start_client():
     username = input("Enter your username: ")
     client_socket.send(username.encode())
 
-    threading.Thread(target=receive_messages, args=(client_socket,)).start()
+    threading.Thread(target=receive_messages, args=(client_socket,), daemon=True).start()
 
     while True:
         message = input()
