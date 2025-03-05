@@ -43,7 +43,7 @@ Enter your username: Alice
 Olá, pessoal!
 /list
 Current clients:
-Alice (127.0.0.1:12345)
-Bob (127.0.0.1:54321)
+Alice
+Bob
 /msg Bob E aí, Bob! Tudo bem?
 /exit
