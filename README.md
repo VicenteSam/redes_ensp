@@ -23,3 +23,13 @@ Para a execução de cada topologia, basta:
 # Configuração de WLAN
 ![image](https://github.com/user-attachments/assets/12fb16c1-77e8-4fdd-b32e-7ada1cdf0f88)
 
+# Socket Python
+Comandos
+<mensagem>	Envia uma mensagem para todos os clientes.	Olá, pessoal!
+/list	Lista todos os clientes conectados.	/list
+/msg <user> <msg>	Envia uma mensagem privada para um usuário.	/msg Bob Olá, Bob!
+/exit	Desconecta o cliente do servidor.	/exit
+Observações:
+  - O comando /list retorna a lista de usuários conectados, com seus nomes e endereços (IP e porta).
+  - O comando /msg permite enviar mensagens privadas para um usuário específico.
+  - O comando /exit encerra a conexão do cliente com o servidor.
