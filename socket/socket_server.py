@@ -5,13 +5,13 @@ clients = {}
 
 def client_list():
     print("Current clients:")
-    for username, (ip, port) in clients.items():
+    for username, (client_socket, (ip, port)) in clients.items():
         print(f"{username} ({ip}:{port})")
 
 def handle_client(client_socket, client_address):
     try:
         username = client_socket.recv(1024).decode()
-        clients[username] = client_address
+        clients[username] = (client_socket, client_address)
         print(f"New connection: {username} - {client_address[0]}:{client_address[1]}")
         client_list()
 
@@ -21,30 +21,18 @@ def handle_client(client_socket, client_address):
                 break
 
             if message.startswith("/list"):
-                client_socket.send(str(clients).encode())
+                client_socket.send(str(list(clients.keys())).encode())
             elif message.startswith("/msg"):
                 _, recipient, content = message.split(' ', 2)
                 if recipient in clients:
-                    recipient_ip, recipient_port = clients[recipient]
-                    try:
-                        recipient_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                        recipient_socket.connect((recipient_ip, recipient_port))
-                        recipient_socket.send(f"{username}: {content}".encode())
-                        recipient_socket.close()
-                    except Exception as e:
-                        print(f"Error sending message to {recipient}: {e}")
+                    recipient_socket, _ = clients[recipient]
+                    recipient_socket.send(f"{username}: {content}".encode())
                 else:
                     client_socket.send(f"User {recipient} not found.".encode())
             else:
-                for user, (ip, port) in clients.items():
+                for user, (user_socket, _) in clients.items():
                     if user != username:
-                        try:
-                            user_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                            user_socket.connect((ip, port))
-                            user_socket.send(f"{username}: {message}".encode())
-                            user_socket.close()
-                        except Exception as e:
-                            print(f"Error broadcasting message to {user}: {e}")
+                        user_socket.send(f"{username}: {message}".encode())
 
     except Exception as e:
         print(f"Error with client {client_address}: {e}")
@@ -67,4 +55,3 @@ def start_server():
 
 if __name__ == '__main__':
     start_server()
-    
